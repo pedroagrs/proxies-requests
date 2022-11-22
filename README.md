@@ -6,5 +6,7 @@
 * Auto refresh
 * Blacklist
 * Socks/HTTP
-* URL Decoder
+* URL/Json Decoder
 * Proxy checker
+
+[Click here](https://github.com/pedroagrs/proxies-requests/tree/main/src/test/java) for examples.
