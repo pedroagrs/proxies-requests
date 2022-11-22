@@ -8,16 +8,7 @@ import java.io.File;
 import java.net.Proxy;
 import java.util.ArrayDeque;
 
-public class Test {
-
-    private static final String REGEX = "^"
-            + "(((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}" // Domain name
-            + "|"
-            + "localhost" // localhost
-            + "|"
-            + "(([0-9]{1,3}\\.){3})[0-9]{1,3})" // Ip
-            + ":"
-            + "[0-9]{1,5}$";
+public class FilesTest {
 
     public static void main(String[] args) {
         new HttpRequestController(100, () -> RequestProxyFileDecoderBuilder.builder()

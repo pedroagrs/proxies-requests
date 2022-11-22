@@ -15,20 +15,16 @@ import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JsonTest {
+public class URLJsonTest {
     private static final List<String> BLACKLIST_COUNTRIES = List.of(
             "US", "CA", "BR", "HK", "RU", "DE", "FR", "IN", "AR", "IT", "NL", "ID", "KR", "PL", "GB", "SG", "AE", "CN",
             "BD");
 
-    private static final String HTTP_URL =
-            "https://proxylist.geonode.com/api/proxy-list?limit=500&page=1&sort_by=lastChecked&sort_type=desc&protocols=http";
-
-    private static final String SOCKS_URL =
-            "https://proxylist.geonode.com/api/proxy-list?limit=500&page=1&sort_by=lastChecked&sort_type=desc&protocols=socks5";
+    private static final String URL = "https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list";
 
     public static void main(String[] args) {
 
-       new HttpRequestController(100, () -> applyBlacklist(getProxies()).stream()
+        new HttpRequestController(100, () -> applyBlacklist(getProxies()).stream()
                 .filter(proxy -> proxy.getProxy().type() == Proxy.Type.HTTP)
                 .collect(ArrayDeque::new, ArrayDeque::add, ArrayDeque::addAll));
 
@@ -42,14 +38,14 @@ public class JsonTest {
         final List<CustomProxy> proxies = new LinkedList<>();
 
         try {
-            List<JSONObject> jsonObjects =
-                    readJsonArrayFromUrl("https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list");
+            List<JSONObject> jsonObjects = readJsonArrayFromUrl(URL);
 
             jsonObjects.forEach(json -> {
                 String host = json.getString("host");
                 String country = json.get("country").toString();
                 String protocol = json.getString("type");
-                Proxy.Type type = protocol.equals("http") || protocol.equals("https") ? Proxy.Type.HTTP : Proxy.Type.SOCKS;
+                Proxy.Type type =
+                        protocol.equals("http") || protocol.equals("https") ? Proxy.Type.HTTP : Proxy.Type.SOCKS;
 
                 int port = json.getInt("port");
 

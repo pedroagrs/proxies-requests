@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
 
-public class CountryTest {
+public class FilesCountryTest {
 
     private static final List<String> BLACKLIST_COUNTRIES =
             List.of("US", "CA", "BR", "HK", "RU", "DE", "FR", "IN", "AR", "IT", "NL", "ID", "KR", "PL", "GB", "SG", "AE", "CN", "BD");
