@@ -1,5 +1,7 @@
 # Proxies Requests
- A simple request project using Socks/HTTP with proxies.
+ A simple request project using Socks/HTTP with proxies. Please, don't expect optimizations/support for a study project.
+
+[Click here](https://github.com/pedroagrs/proxies-requests/tree/main/src/test/java) for examples.
 
 # Features
 * Custom proxies
@@ -8,5 +10,3 @@
 * Socks/HTTP
 * URL/Json Decoder
 * Proxy checker
-
-[Click here](https://github.com/pedroagrs/proxies-requests/tree/main/src/test/java) for examples.
